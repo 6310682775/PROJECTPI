@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<a href="{% url 'main:dashboard'  %}">back</a>
+<h1>Loop Dashboard</h1>
+<a href="{% url 'main:new_loop' task_id %}">New Loop</a>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Edit</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for loop in loops %}
+    <tr>
+        <td>{{ loop.pk }}</td>
+        <td>{{ loop.loop_name }}</td>
+        <td>{{ loop.description }}</td>
+        <td>
+        </td>
+        <td><a href="{% url 'main:edit_loop' loop.pk %}">Edit</a></td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

@@ -1,0 +1,7 @@
+{% extends 'base.html' %} {% block content %}
+<a href="{% url 'main:loop_dashboard' task_id %}">back</a>
+<form method="POST" enctype="multipart/form-data">
+  {% csrf_token %} {{ form.as_p }}
+  <button type="submit">Edit Loop</button>
+</form>
+{% endblock %}
